@@ -1,0 +1,1 @@
+export { Module as EchartsModule } from './Internal/Module';

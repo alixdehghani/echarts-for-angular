@@ -1,0 +1,1 @@
+export { BarChartModule } from './Internal/barChart.module'
