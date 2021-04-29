@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EchartsxModule } from 'projects/echartsx/src/public-api';
 
-import { EchartsModule } from 'src/app/Echarts/Index';
 import { BarChartComponent } from './barChart.component';
 
 const routes: Routes = [
@@ -12,7 +12,7 @@ const routes: Routes = [
 
 @NgModule({
     declarations: [BarChartComponent],
-    imports: [EchartsModule, RouterModule.forChild(routes)],
+    imports: [EchartsxModule, RouterModule.forChild(routes)],
     exports: [BarChartComponent],
 })
 export class BarChartModule { }

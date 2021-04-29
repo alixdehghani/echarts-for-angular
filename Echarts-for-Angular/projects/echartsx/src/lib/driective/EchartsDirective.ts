@@ -3,8 +3,8 @@ import { Subscription } from "rxjs";
 
 import * as echarts from 'echarts/core';
 import { CanvasRenderer } from 'echarts/renderers';
+import { HtmlHelper } from "../internal/HtmlHelper";
 
-import { HtmlHelper } from "src/app/Helper";
 
 
 @Directive({
