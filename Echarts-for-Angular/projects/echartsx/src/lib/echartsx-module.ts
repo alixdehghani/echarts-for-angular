@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { EchartsDirective } from './EchartsDirective';
+import { EchartsDirective } from './driective/EchartsDirective';
 
 
 @NgModule({
     declarations: [EchartsDirective],
     exports: [EchartsDirective]
 })
-export class Module { }
+export class EchartsxModule { }
