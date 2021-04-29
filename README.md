@@ -5,31 +5,34 @@ Angular directive for [Apache ECharts (incubating)](https://github.com/apache/in
 
 - [Online Demo](https://stackblitz.com/edit/echarts-for-angular?file=src/app/bar-chart/bar-chart.component.ts)
 
+
 # Getting Started
 
 `echarts-for-angular` is an Angular (ver >= 9.x) directive for ECharts (ver >= 5.x).
+
 
 # Installation
 
 ```bash
 # if you use npm
-
 npm install echarts -S
 npm install echarts-for-angular
 
-  # or if you use yarn
-  yarn add echarts
-  yarn add echarts-for-angular
-  ```
+# or if you use yarn
+yarn add echarts
+yarn add echarts-for-angular
+```
 
 - If you need ECharts GL support, please install it first:
 
-  ```bash
+```bash
+# if you use npm
 npm install echarts-gl -S
 
-  # or
-  yarn add echarts-gl
-  ```
+# or if you use yarn
+yarn add echarts-gl
+```
+
 
 # Usage
 
@@ -121,20 +124,17 @@ import { EchartsxModule } from 'echarts-for-angular';
             ]
         };
     }
-    }```
+    }
+    ```
 
 
 # API
 
 
 ### Directive
-
-
 `echarts` directive support following input properties:
 
-| Input           | Type    | Default | Description
-
+| Input           | Type    | Default | Description                                                                                                                                                                                                                                                                                                             |
 | --------------- | ------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `[options]`     | object  | null    | The same as the options on the official demo site.  
-
-| `[extentions]`     | array  | null    | extentions you need to create a chart.  
+| `[options]`     | object  | null    | The same as the options on the official demo site.   
+| `[extentions]`     | array  | null    | echarts extentions you need to create a chart.  
