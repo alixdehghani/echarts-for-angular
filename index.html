@@ -16,7 +16,7 @@
 <script>
   (function () {
     // Retrieve the URL the user was trying to access when receiving the 404.
-    let redirect = sessionStorage.redirect;
+    const redirect = sessionStorage.redirect;
     // Remove the URL from sessionStorage.
     delete sessionStorage.redirect;
     // Check if we actually need to redirect.
