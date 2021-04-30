@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'bar-chart', loadChildren: () => import('src/app/BarChart').then(m => m.BarChartModule)
+    path: 'bar-chart', loadChildren: () => import('./BarChart/Index').then(m => m.BarChartModule)
   }
 ];
 
