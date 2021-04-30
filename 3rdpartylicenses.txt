@@ -237,7 +237,7 @@ The following files embed [d3.js](https://github.com/d3/d3) BSD 3-Clause:
 See `/licenses/LICENSE-d3` for details of the license.
 
 
-echartsx
+echarts-for-angular
 MIT
 
 rxjs
