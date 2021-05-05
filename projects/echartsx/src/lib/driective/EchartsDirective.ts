@@ -38,7 +38,7 @@ export class EchartsDirective implements OnInit, OnDestroy, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        if (changes._options && !changes._options.firstChange) {
+        if (changes.options && !changes.options.firstChange) {
             this._setParams();
         }
     }
