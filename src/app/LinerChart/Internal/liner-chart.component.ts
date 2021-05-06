@@ -26,7 +26,7 @@ export class LinerChartComponent implements OnInit {
   }
   option = {
     title: {
-      text: '动态数据 + 时间坐标轴'
+      text: 'Liner chart + live'
     },
     tooltip: {
       trigger: 'axis',
@@ -53,7 +53,7 @@ export class LinerChartComponent implements OnInit {
       }
     },
     series: [{
-      name: '模拟数据',
+      name: 'msft',
       type: 'line',
       showSymbol: false,
       hoverAnimation: false,
