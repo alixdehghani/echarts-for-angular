@@ -1,7 +1,8 @@
 {
   "name": "echarts-for-angular",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
+  "keywords": ["echarts","chart","angular","echarts-for-angular"],
   "author": "Behrooz bozorg chami,Ali Dehghani",
   "repository": {
     "type": "git",
@@ -16,4 +17,5 @@
   "dependencies": {
     "tslib": "2"
   }
+  
 }
