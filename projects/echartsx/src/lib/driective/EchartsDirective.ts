@@ -14,20 +14,22 @@ import { EChartsOption } from 'echarts';
 export class EchartsDirective implements OnInit, OnDestroy, OnChanges {
     @Input() options: EChartsOption | undefined;
     @Input() extentions: any[] = [];
+    @Input() defaultWidth: number = 400;
+    @Input() defaultHeight: number = 400;
 
     private _echartsInstance: echarts.ECharts | undefined;
 
     private _subscription: Subscription | undefined;
 
-    constructor (
+    constructor(
         private readonly _el: ElementRef<HTMLElement>
     ) { }
 
     ngOnInit(): void {
         echarts.use([...this.extentions, CanvasRenderer]);
         this._echartsInstance = echarts.init(this._el.nativeElement, '', {
-            width: this._el.nativeElement.clientWidth === 0 ? 400 : this._el.nativeElement.clientWidth,
-            height: this._el.nativeElement.clientHeight === 0 ? 400 : this._el.nativeElement.clientHeight
+            width: this._el.nativeElement.clientWidth === 0 ? this.defaultWidth : this._el.nativeElement.clientWidth,
+            height: this._el.nativeElement.clientHeight === 0 ? this.defaultHeight : this._el.nativeElement.clientHeight
         });
         this._setParams();
         this._subscription = HtmlHelper.getWidthSensor(this._el.nativeElement).subscribe(() => {
