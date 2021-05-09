@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EChartsOption } from 'echarts';
 import { BarChart } from 'echarts/charts';
 import { TooltipComponent, GridComponent, LegendComponent } from 'echarts/components';
 
@@ -10,7 +11,7 @@ import { TooltipComponent, GridComponent, LegendComponent } from 'echarts/compon
 
 export class BarChartComponent implements OnInit {
     readonly echartsExtentions: any[];
-    echartsOptions: object = {};
+    echartsOptions: EChartsOption = {};
 
     constructor() {
         this.echartsExtentions = [BarChart, TooltipComponent, GridComponent, LegendComponent]
