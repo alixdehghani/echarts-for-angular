@@ -4,7 +4,7 @@ import { Subscription } from "rxjs";
 import * as echarts from 'echarts/core';
 import { CanvasRenderer } from 'echarts/renderers';
 import { HtmlHelper } from "../internal/HtmlHelper";
-
+import { EChartsOption } from 'echarts';
 
 
 @Directive({
@@ -12,9 +12,11 @@ import { HtmlHelper } from "../internal/HtmlHelper";
 })
 
 export class EchartsDirective implements OnInit, OnDestroy, OnChanges {
-    @Input() options: object | undefined;
+    @Input() options: EChartsOption | undefined;
     @Input() extentions: any[] = [];
     @Input() isResizable: boolean = true;
+    @Input() defaultWidth: number = 400;
+    @Input() defaultHeight: number = 400;
 
     private _echartsInstance: echarts.ECharts | undefined;
 
@@ -27,8 +29,8 @@ export class EchartsDirective implements OnInit, OnDestroy, OnChanges {
     ngOnInit(): void {
         echarts.use([...this.extentions, CanvasRenderer]);
         this._echartsInstance = echarts.init(this._el.nativeElement, '', {
-            width: this._el.nativeElement.clientWidth === 0 ? 400 : undefined,
-            height: this._el.nativeElement.clientHeight === 0 ? 400 : undefined
+            width: this._el.nativeElement.clientWidth === this.defaultWidth ? 400 : undefined,
+            height: this._el.nativeElement.clientHeight === 0 ? this.defaultHeight : undefined
         })
         this._setParams();
         if (this.isResizable) {
