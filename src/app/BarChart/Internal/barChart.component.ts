@@ -11,6 +11,7 @@ import { TooltipComponent, GridComponent, LegendComponent } from 'echarts/compon
 export class BarChartComponent implements OnInit {
     readonly echartsExtentions: any[];
     echartsOptions: object = {};
+    resizable = true;
 
     constructor() {
         this.echartsExtentions = [BarChart, TooltipComponent, GridComponent, LegendComponent]
@@ -59,5 +60,8 @@ export class BarChartComponent implements OnInit {
                 }
             ]
         }
+    }
+    resizableHandler() {
+        this.resizable = !this.resizable
     }
 }

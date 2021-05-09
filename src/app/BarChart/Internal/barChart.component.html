@@ -1,3 +1,5 @@
+<button (click)=resizableHandler()>change resizable</button>
 <div class="container">
-    <div class="body" echarts [options]="echartsOptions" [extentions]="echartsExtentions"></div>
+    <div class="body" echarts [options]="echartsOptions" [extentions]="echartsExtentions" [isResizable]="resizable">
+    </div>
 </div>
