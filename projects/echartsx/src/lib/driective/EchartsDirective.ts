@@ -4,7 +4,7 @@ import { Subscription } from "rxjs";
 import * as echarts from 'echarts/core';
 import { CanvasRenderer } from 'echarts/renderers';
 import { HtmlHelper } from "../internal/HtmlHelper";
-
+import { EChartsOption } from 'echarts';
 
 
 @Directive({
@@ -12,14 +12,14 @@ import { HtmlHelper } from "../internal/HtmlHelper";
 })
 
 export class EchartsDirective implements OnInit, OnDestroy, OnChanges {
-    @Input() options: object | undefined;
+    @Input() options: EChartsOption | undefined;
     @Input() extentions: any[] = [];
 
     private _echartsInstance: echarts.ECharts | undefined;
 
     private _subscription: Subscription | undefined;
 
-    constructor(
+    constructor (
         private readonly _el: ElementRef<HTMLElement>
     ) { }
 
@@ -28,7 +28,7 @@ export class EchartsDirective implements OnInit, OnDestroy, OnChanges {
         this._echartsInstance = echarts.init(this._el.nativeElement, '', {
             width: this._el.nativeElement.clientWidth === 0 ? 400 : this._el.nativeElement.clientWidth,
             height: this._el.nativeElement.clientHeight === 0 ? 400 : this._el.nativeElement.clientHeight
-        })
+        });
         this._setParams();
         this._subscription = HtmlHelper.getWidthSensor(this._el.nativeElement).subscribe(() => {
             if (this._echartsInstance != null) {

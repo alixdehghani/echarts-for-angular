@@ -136,5 +136,5 @@ import { EchartsxModule } from 'echarts-for-angular';
 
 | Input           | Type    | Default | Description                                                                                                                                                                                                                                                                                                             |
 | --------------- | ------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `[options]`     | object  | null    | The same as the options on the official demo site.   
+| `[options]`     | EChartsOption  | null    | The same as the options on the official demo site.   
 | `[extentions]`     | array  | null    | echarts extentions you need to create a chart.  
