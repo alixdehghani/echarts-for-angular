@@ -17,17 +17,18 @@ export class EchartsDirective implements OnInit, OnDestroy, OnChanges {
     @Input() defaultWidth: number = 400;
     @Input() defaultHeight: number = 400;
     @Input() periodicityInMiliSeconds: number = 2000;
+    @Input() theme: string = '';
     private _echartsInstance: echarts.ECharts | undefined;
 
     private _subscription: Subscription | undefined;
 
-    constructor(
+    constructor (
         private readonly _el: ElementRef<HTMLElement>
     ) { }
 
     ngOnInit(): void {
         echarts.use([...this.extentions, CanvasRenderer]);
-        this._echartsInstance = echarts.init(this._el.nativeElement, '', {
+        this._echartsInstance = echarts.init(this._el.nativeElement, this.theme, {
             width: this._el.nativeElement.clientWidth === 0 ? this.defaultWidth : this._el.nativeElement.clientWidth,
             height: this._el.nativeElement.clientHeight === 0 ? this.defaultHeight : this._el.nativeElement.clientHeight
         });
