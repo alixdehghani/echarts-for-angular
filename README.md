@@ -138,4 +138,6 @@ import { EchartsxModule } from 'echarts-for-angular';
 | --------------- | ------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `[options]`     | EChartsOption  | null    | The same as the options on the official demo site.   
 | `[extentions]`     | array  | null    | echarts extentions you need to create a chart.  
+| `[defaultWidth]`     | number  | 400    | if the html element that specifies for draw chart has no width the default width will be apply.  
+| `[defaultHeight]`     | number  | 400    | if the html element that specifies for draw chart has no height the default height will be apply. 
 | `[theme]` | string \| Object | "" |  Theme to be applied. This can be a configuring object of a theme, or a theme name registered through echarts.registerTheme. you can use dark for active dark theme 
