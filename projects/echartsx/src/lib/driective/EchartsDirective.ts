@@ -20,7 +20,7 @@ export class EchartsDirective implements OnInit, OnDestroy, OnChanges {
     @Input() periodicityInMiliSeconds: number = 2000;
     @Input() theme: Object | string = '';
 
-    @Output() echartsInstance = new EventEmitter<echarts.ECharts | undefined>();
+    @Output() echartsInstance = new EventEmitter<echarts.ECharts>();
 
     private _echartsInstance: echarts.ECharts | undefined;
 
