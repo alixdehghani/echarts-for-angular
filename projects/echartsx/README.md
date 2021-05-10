@@ -142,4 +142,5 @@ import { EchartsxModule } from 'echarts-for-angular';
 | `[defaultHeight]`     | number  | 400    | if the html element that specifies for draw chart has no height the default height will be apply. 
 | `[theme]` | string \| Object | "" |  Theme to be applied. This can be a configuring object of a theme, or a theme name registered through echarts.registerTheme. you can use dark for active dark theme 
 | `[isResizable]`     | boolean  | true    | enable or disable auto resize function.  
+| `[periodicityInMiliSeconds]`     | number  | 2000    | time for recheck the chart size changes then resize method will be call.  
 
