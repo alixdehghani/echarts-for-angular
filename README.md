@@ -144,3 +144,26 @@ import { EchartsxModule } from 'echarts-for-angular';
 | `[isResizable]`     | boolean  | true    | enable or disable auto resize function.  
 | `[periodicityInMiliSeconds]`     | number  | 2000    | time for recheck the chart size changes then resize method will be call.  
 
+### ECharts Instance
+
+`echartsInstance` is exposed (since v1.1.6) in the `(chartInit)` event, enabling you to directly call functions like: `resize()`, `showLoading()`, etc. For example:
+
+- html:
+
+```html
+<div echarts class="demo-chart" [options]="chartOptions" (echartsInstance)="onChartInit($event)"></div>
+```
+
+- component:
+
+```typescript
+onChartInit(ec) {
+  this.echartsInstance = ec;
+}
+
+resizeChart() {
+  if (this.echartsInstance) {
+    this.echartsInstance.resize();
+  }
+}
+```

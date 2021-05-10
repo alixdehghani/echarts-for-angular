@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from "@angular/core";
+import { Directive, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from "@angular/core";
 import { Subscription } from "rxjs";
 
 import * as echarts from 'echarts/core';
@@ -19,11 +19,14 @@ export class EchartsDirective implements OnInit, OnDestroy, OnChanges {
     @Input() defaultHeight: number = 400;
     @Input() periodicityInMiliSeconds: number = 2000;
     @Input() theme: Object | string = '';
+
+    @Output() echartsInstance = new EventEmitter<echarts.ECharts>();
+
     private _echartsInstance: echarts.ECharts | undefined;
 
     private _subscription: Subscription | undefined;
 
-    constructor (
+    constructor(
         private readonly _el: ElementRef<HTMLElement>
     ) { }
 
@@ -32,7 +35,8 @@ export class EchartsDirective implements OnInit, OnDestroy, OnChanges {
         this._echartsInstance = echarts.init(this._el.nativeElement, this.theme, {
             width: this._el.nativeElement.clientWidth === this.defaultWidth ? 400 : undefined,
             height: this._el.nativeElement.clientHeight === 0 ? this.defaultHeight : undefined
-        })
+        });
+        this.echartsInstance.emit(this._echartsInstance);
         this._setParams();
         if (this.isResizable) {
             this._addResizbleFunctionality();
