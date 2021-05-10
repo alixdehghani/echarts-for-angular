@@ -17,7 +17,7 @@ export class EchartsDirective implements OnInit, OnDestroy, OnChanges {
     @Input() defaultWidth: number = 400;
     @Input() defaultHeight: number = 400;
     @Input() periodicityInMiliSeconds: number = 2000;
-    @Input() theme: string = '';
+    @Input() theme: Object | string = '';
     private _echartsInstance: echarts.ECharts | undefined;
 
     private _subscription: Subscription | undefined;
