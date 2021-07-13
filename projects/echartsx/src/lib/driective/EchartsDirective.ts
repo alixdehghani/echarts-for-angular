@@ -26,7 +26,7 @@ export class EchartsDirective implements OnInit, OnDestroy, OnChanges {
 
     private _subscription: Subscription | undefined;
 
-    constructor(
+    constructor (
         private readonly _el: ElementRef<HTMLElement>
     ) { }
 
@@ -66,8 +66,9 @@ export class EchartsDirective implements OnInit, OnDestroy, OnChanges {
         });
     }
     private _setParams() {
-        if (this._echartsInstance != null && this.options != null)
-            this._echartsInstance.setOption({ ...this.options });
+        if (this._echartsInstance != null && this.options != null) {
+            this._echartsInstance.setOption(this.options, true);
+        }
     }
 
     ngOnDestroy(): void {
