@@ -20,7 +20,7 @@ export class EchartsDirective implements OnInit, OnDestroy, OnChanges {
     @Input() periodicityInMiliSeconds: number = 2000;
     @Input() theme: Object | string = '';
 
-    @Output() echartsInstance = new EventEmitter<echarts.ECharts>();
+    @Output() chartInit = new EventEmitter<echarts.ECharts>();
 
     private _echartsInstance: echarts.ECharts | undefined;
 
@@ -36,7 +36,7 @@ export class EchartsDirective implements OnInit, OnDestroy, OnChanges {
             width: this._el.nativeElement.clientWidth === this.defaultWidth ? 400 : undefined,
             height: this._el.nativeElement.clientHeight === 0 ? this.defaultHeight : undefined
         });
-        this.echartsInstance.emit(this._echartsInstance);
+        this.chartInit.emit(this._echartsInstance);
         this._setParams();
         if (this.isResizable) {
             this._addResizbleFunctionality();
