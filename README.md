@@ -146,12 +146,12 @@ import { EchartsxModule } from 'echarts-for-angular';
 
 ### ECharts Instance
 
-`echartsInstance` is exposed (since v1.1.6) in the `(chartInit)` event, enabling you to directly call functions like: `resize()`, `showLoading()`, etc. For example:
+`echartsInstance` is exposed in the `(chartInit)` event, enabling you to directly call functions like: `resize()`, `showLoading()`, etc. For example:
 
 - html:
 
 ```html
-<div echarts class="demo-chart" [options]="chartOptions" (echartsInstance)="onChartInit($event)"></div>
+<div echarts class="demo-chart" [options]="chartOptions" (chartInit)="onChartInit($event)"></div>
 ```
 
 - component:
