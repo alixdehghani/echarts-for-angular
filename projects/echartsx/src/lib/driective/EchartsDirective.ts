@@ -22,56 +22,56 @@ export class EchartsDirective implements OnInit, OnDestroy, OnChanges {
 
     @Output() chartInit = new EventEmitter<echarts.ECharts>();
 
-    private _echartsInstance: echarts.ECharts | undefined;
+    protected echartsInstance: echarts.ECharts | undefined;
 
-    private _subscription: Subscription | undefined;
+    protected subscription: Subscription | undefined;
 
     constructor (
-        private readonly _el: ElementRef<HTMLElement>
+        protected readonly _el: ElementRef<HTMLElement>
     ) { }
 
     ngOnInit(): void {
         echarts.use([...this.extentions, CanvasRenderer]);
-        this._echartsInstance = echarts.init(this._el.nativeElement, this.theme, {
+        this.echartsInstance = echarts.init(this._el.nativeElement, this.theme, {
             width: this._el.nativeElement.clientWidth === this.defaultWidth ? 400 : undefined,
             height: this._el.nativeElement.clientHeight === 0 ? this.defaultHeight : undefined
         });
-        this.chartInit.emit(this._echartsInstance);
-        this._setParams();
+        this.chartInit.emit(this.echartsInstance);
+        this.setParams();
         if (this.isResizable) {
-            this._addResizbleFunctionality();
+            this.addResizbleFunctionality();
         }
     }
 
     ngOnChanges(changes: SimpleChanges): void {
         if (changes.options && !changes.options.firstChange) {
-            this._setParams();
+            this.setParams();
         }
 
         if (changes.isResizable && !changes.isResizable.firstChange) {
             if (this.isResizable) {
-                this._addResizbleFunctionality();
+                this.addResizbleFunctionality();
             } else {
-                if (this._subscription != null) this._subscription.unsubscribe();
+                if (this.subscription != null) this.subscription.unsubscribe();
             }
         }
     }
 
-    private _addResizbleFunctionality() {
-        if (this._subscription != null) this._subscription.unsubscribe();
-        this._subscription = HtmlHelper.getWidthSensor(this._el.nativeElement).subscribe(() => {
-            if (this._echartsInstance != null) {
-                this._echartsInstance.resize();
+    protected addResizbleFunctionality() {
+        if (this.subscription != null) this.subscription.unsubscribe();
+        this.subscription = HtmlHelper.getWidthSensor(this._el.nativeElement).subscribe(() => {
+            if (this.echartsInstance != null) {
+                this.echartsInstance.resize();
             }
         });
     }
-    private _setParams() {
-        if (this._echartsInstance != null && this.options != null) {
-            this._echartsInstance.setOption(this.options, true);
+    protected setParams() {
+        if (this.echartsInstance != null && this.options != null) {
+            this.echartsInstance.setOption(this.options, true);
         }
     }
 
     ngOnDestroy(): void {
-        if (this._subscription != null) this._subscription.unsubscribe();
+        if (this.subscription != null) this.subscription.unsubscribe();
     }
 }
