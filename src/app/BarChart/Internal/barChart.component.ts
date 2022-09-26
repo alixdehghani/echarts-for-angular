@@ -11,7 +11,7 @@ import { TooltipComponent, GridComponent, LegendComponent } from 'echarts/compon
 
 export class BarChartComponent implements OnInit {
     readonly echartsExtentions: any[];
-    echartsOptions: EChartsOption = {};
+  echartsOptions!:EChartsOption;
 
     constructor() {
         this.echartsExtentions = [BarChart, TooltipComponent, GridComponent, LegendComponent]
